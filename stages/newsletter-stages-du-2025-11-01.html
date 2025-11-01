@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stages Corporate Finance – samedi 1 novembre 2025</title>
+  <style>
+    /* ==== RESET & TYPO ==== */
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
+      background:#f8fafc;
+      color:#1e293b;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+
+    /* ==== DARK MODE – 100% FONCTIONNEL ==== */
+    @media (prefers-color-scheme: dark) {
+      body{background:#0f172a !important;color:#e2e8f0 !important;}
+      .email-wrapper{background:linear-gradient(135deg,#1e293b 0%,#334155 100%) !important;}
+      .email-container{background:#1e293b !important;box-shadow:0 20px 60px rgba(0,0,0,.6) !important;}
+      .header-section{background:linear-gradient(135deg,#1d4ed8 0%,#6d28d9 100%) !important;}
+      .content-section,.job-card,.author-section{background:#1e293b !important;}
+      .job-card,.job-card a.title,.author-section{border-color:#334155 !important;}
+      .job-card a.title{color:#60a5fa !important;}
+      .job-card a.title:hover{color:#93c5fd !important;}
+      .job-meta .meta-item{background:#334155 !important;color:#e2e8f0 !important;}
+      .job-meta .meta-item:hover{background:#475569 !important;}
+      .job-snippet{color:#94a3b8 !important;border-top-color:#475569 !important;}
+      .footer-section{background:#0f172a !important;border-top-color:#334155 !important;}
+      .social-section{background:linear-gradient(135deg,#1e3a8a 0%,#4c1d95 100%) !important;}
+      .footer-copyright{color:#94a3b8 !important;}
+      .btn-online{background:#fbbf24 !important;color:#1e293b !important;}
+    }
+
+    /* ==== LAYOUT ==== */
+    .email-wrapper{background:linear-gradient(135deg,#e0f2fe 0%,#ddd6fe 100%);padding:30px 15px;}
+    .email-container{max-width:720px;margin:auto;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 25px 70px rgba(0,0,0,.12);}
+
+    /* ==== HEADER ==== */
+    .header-section{
+      background:linear-gradient(135deg,#2563eb 0%,#7c3aed 100%);
+      padding:52px 36px;
+      text-align:center;
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    .header-section::before{
+      content:'';
+      position:absolute;top:0;left:0;right:0;bottom:0;
+      background:radial-gradient(circle at 20% 30%, rgba(255,255,255,.2) 0%, transparent 50%);
+      pointer-events:none;
+    }
+    .header-section h1{
+      font-size:38px;font-weight:800;margin-bottom:12px;
+      position:relative;z-index:2;
+    }
+    .header-subtitle{
+      font-size:18px;opacity:.95;margin-bottom:20px;
+      position:relative;z-index:2;
+    }
+    .header-meta{
+      display:flex;justify-content:center;gap:24px;
+      margin:24px 0;font-size:15px;position:relative;z-index:2;
+    }
+    .header-meta span{
+      background:rgba(255,255,255,.3);padding:12px 24px;
+      border-radius:50px;font-weight:600;backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.4);
+    }
+    .btn-online{
+      display:inline-block;background:#fbbf24;color:#1e293b !important;
+      padding:14px 32px;border-radius:50px;font-weight:700;font-size:15px;
+      margin-top:24px;box-shadow:0 8px 20px rgba(251,191,36,.4);
+      transition:transform .3s,box-shadow .3s;
+    }
+    .btn-online:hover{
+      transform:translateY(-4px);box-shadow:0 16px 32px rgba(251,191,36,.5);
+    }
+
+    .content-section{padding:52px 40px;background:#fff;}
+
+    /* ==== JOB CARDS ==== */
+    .job-card{
+      background:#ffffff;border:1px solid #e2e8f0;border-radius:20px;
+      padding:32px;margin-bottom:32px;font-size:15px;color:#1e293b;
+      transition:transform .3s ease,box-shadow .3s ease;
+    }
+    .job-card:hover{
+      transform:translateY(-8px);box-shadow:0 24px 48px rgba(0,0,0,.15);
+      border-color:#c7d2fe;
+    }
+    .job-card a.title{
+      display:block;font-size:24px;font-weight:800;color:#1d4ed8;
+      margin-bottom:16px;line-height:1.35;text-decoration:none;
+    }
+    .job-card a.title:hover{
+      color:#1e40af;text-decoration:underline;text-underline-offset:6px;
+    }
+
+    .job-meta{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0;font-size:14px;color:#475569;}
+    .meta-item{
+      display:flex;align-items:center;gap:8px;
+      background:#f8fafc;padding:10px 16px;border-radius:16px;
+      font-weight:600;font-size:14px;transition:background .3s;
+    }
+    .meta-item:hover{background:#dbeafe;}
+
+    .job-snippet{
+      font-size:16px;color:#334155;line-height:1.75;
+      margin-top:20px;padding-top:20px;border-top:2px dashed #e2e8f0;
+    }
+
+    /* ==== FOOTER ==== */
+    .footer-section{
+      background:#f8fafc;padding:48px 40px;text-align:center;
+      font-size:14px;color:#64748b;border-top:1px solid #e2e8f0;
+    }
+    .social-section{
+      background:linear-gradient(135deg,#eff6ff 0%,#f3e8ff 100%);
+      padding:38px;border-radius:20px;margin-bottom:38px;
+    }
+    .social-section h4{font-size:22px;margin-bottom:20px;color:#1e293b;}
+    .social-links a{
+      display:inline-block;background:#ef4444;color:#fff !important;
+      padding:16px 36px;border-radius:12px;font-weight:700;font-size:15px;
+      transition:transform .3s,box-shadow .3s;
+      box-shadow:0 4px 12px rgba(239,68,68,.3);
+    }
+    .social-links a:hover{
+      transform:scale(1.05);box-shadow:0 12px 24px rgba(239,68,68,.4);
+    }
+
+    .author-section{
+      background:#fff;border:1px solid #e2e8f0;border-radius:20px;
+      padding:38px;margin-bottom:38px;
+    }
+    .author-content{display:flex;gap:30px;align-items:flex-start;}
+    .author-content img{
+      width:110px;height:110px;border-radius:50%;object-fit:cover;
+      border:5px solid #60a5fa;box-shadow:0 8px 24px rgba(96,165,250,.4);
+    }
+    .author-text h4{font-size:22px;margin-bottom:14px;color:#1e293b;}
+    .author-text p{font-size:15px;margin-bottom:18px;color:#334155;}
+    .author-links a{
+      display:inline-block;padding:12px 28px;border-radius:12px;
+      font-weight:700;font-size:14px;margin-right:12px;
+      transition:transform .3s,box-shadow .3s;
+    }
+    .author-links a:first-child{background:#60a5fa;color:#fff !important;}
+    .author-links a:last-child{background:#94a3b8;color:#fff !important;}
+    .author-links a:hover{transform:translateY(-4px);}
+
+    .footer-copyright{
+      margin-top:32px;padding-top:24px;border-top:1px solid #e2e8f0;
+      font-size:13px;color:#94a3b8;
+    }
+
+    /* ==== RESPONSIVE ==== */
+    @media (max-width:640px){
+      .email-wrapper{padding:20px 12px;}
+      .header-section{padding:40px 24px;}
+      .header-section h1{font-size:32px;}
+      .header-meta{flex-direction:column;gap:16px;}
+      .header-meta span{padding:12px 20px;}
+      .btn-online{padding:12px 24px;font-size:14px;}
+      .content-section{padding:40px 24px;}
+      .job-card{padding:28px;}
+      .job-card a.title{font-size:22px;}
+      .job-meta{gap:12px;flex-direction:column;}
+      .meta-item{width:100%;justify-content:center;}
+      .author-content{flex-direction:column;text-align:center;}
+      .author-content img{width:90px;height:90px;}
+      .social-links a{width:100%;max-width:300px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+      <tr>
+        <td align="center">
+          <table role="presentation" class="email-container" cellspacing="0" cellpadding="0" border="0" width="100%">
+
+            <!-- HEADER -->
+            <tr>
+              <td class="header-section">
+                <h1>🎯 Stages Corporate Finance</h1>
+                <p class="header-subtitle">Les meilleures opportunités du jour, triées pour toi</p>
+                <div class="header-meta">
+                  <span>18 nouvelles offres</span>
+                  <span>samedi 1 novembre 2025</span>
+                </div>
+                <a href="http://newsletters-louis.duckdns.org/stages/newsletter-stages-du-2025-11-01.html" target="_blank" class="btn-online">🚀 Voir en ligne</a>
+              </td>
+            </tr>
+
+            <!-- CONTENT -->
+            <tr>
+              <td class="content-section">
+                
+<div class="job-card">
+  <a href="https://www.welcometothejungle.com/fr/companies/hermes/jobs/stage-juriste-en-droit-immobilier-et-m-a-juillet-2026-h-f_paris" target="_blank" class="title">Stage - Juriste en Droit Immobilier et M&A - Juillet 2026 (H/F)</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>Welcome to the Jungle</span></div><div class="meta-item">📅 <span>il y a 5 heures</span></div></div>
+  <div class="job-snippet">Le stage portera à la fois sur les questions de droit immobilier (baux magasins ou bureaux, projets d'implantation de nouveaux sites de production) et sur les ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://www.jobteaser.com/fr/job-offers/079f71db-87c9-4b0c-bed0-a9833b864d7b-amazon-financial-analyst-intern" target="_blank" class="title">Financial Analyst Intern</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>JobTeaser</span></div><div class="meta-item">📅 <span>il y a 23 heures</span></div></div>
+  <div class="job-snippet">Financial Analyst Intern. Stage 4 à 6 mois. Dublin. Amazon. Grande entrepriseWeb / E-commerce. Publiée le 30 octobre 2025. Postuler. Contrat. Stage 4 à 6 mois ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://www.jobteaser.com/fr/job-offers/aaad9c88-2d08-422a-be81-b35b6803ad1e-axa-investment-managers-stage-analyste-private-debt-h-f-jan-26" target="_blank" class="title">Stage Analyste - Private Debt - H/F (Jan'26)</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>JobTeaser</span></div><div class="meta-item">📅 <span>il y a 21 heures</span></div></div>
+  <div class="job-snippet">En tant que stagiaire pour une durée de 6 mois à partir de janvier 2026 ... Transaction Services, avocats, etc.), les dirigeants d'entreprise et les ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://www.jobteaser.com/fr/job-offers/e9ae541c-53c2-4263-aeef-66649fefc530-generali-stage-m-a-et-corporate-finance-f-h" target="_blank" class="title">STAGE - M&A ET CORPORATE FINANCE F/H</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>JobTeaser</span></div><div class="meta-item">📅 <span>il y a 20 heures</span></div></div>
+  <div class="job-snippet">Réaliser des présentations pour les agences de notation ou pour le Groupe. Description du profil : Formation : stagiaire de fin d'étude ou 2ème partie de césure ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://fr.linkedin.com/jobs/view/operational-due-diligence-analyst-internship-junior-position-at-newalpha-asset-management-4333354215" target="_blank" class="title">Operational Due Diligence Analyst - (Internship/Junior ...</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>LinkedIn</span></div><div class="meta-item">📅 <span>il y a 20 heures</span></div></div>
+  <div class="job-snippet">This role offers a unique opportunity to gain direct exposure to both established global leaders and high-potential emerging asset managers, exploring a diverse ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://www.welcometothejungle.com/fr/companies/kpmg-france/jobs/manager-intern-control-quali-comptable-finances-sect-public-f-h_courbevoie" target="_blank" class="title">Manager Intern Control&Quali Comptable Finances Sect ...</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>Welcome to the Jungle</span></div><div class="meta-item">📅 <span>il y a 20 heures</span></div></div>
+  <div class="job-snippet">Audit et Transaction Services - Junior. Advolis Orfis. CDI. Paris. Télétravail occasionnel. Expertise comptable, IT / Digital. 170 collaborateurs. il ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://www.jobteaser.com/fr/job-offers/d7a55602-ac3a-46c1-8ad7-c700fff86012-pwc-france-juriste-m-a-stage-h-f" target="_blank" class="title">Juriste M&A | Stage | H/F</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>JobTeaser</span></div><div class="meta-item">📅 <span>il y a 19 heures</span></div></div>
+  <div class="job-snippet">Leur terrain de jeu est vaste: gestion et stratégie fiscale de l'entreprise, prix de transferts et fiscalité internationale, TVA et taxes indirectes, contrôles ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://fr.linkedin.com/jobs/view/analyste-private-equity-banque-de-financement-et-d-investissement-paris-ile-de-france-france-societe-generale-at-jobs-via-efinancialcareers-4333423510" target="_blank" class="title">Analyste Private Equity - Banque de financement et d' ...</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>LinkedIn</span></div><div class="meta-item">📅 <span>il y a 18 heures</span></div></div>
+  <div class="job-snippet">STAGIAIRE ANALYSTE INVESTISSEMENT (F/H. The Boost Society (KLEY, HIFE, CAMPUS) ... Alternant Analyste Fusions et Acquisitions (M&A) F-H. SYSTRA. Paris il y ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://fr.linkedin.com/jobs/view/charg%C3%A9-financements-tmt-corporate-project-finance-banque-de-financement-et-d-investissement-la-defense-ile-de-france-france-societe-generale-at-jobs-via-efinancialcareers-4333265471" target="_blank" class="title">Chargé Financements TMT Corporate & Project Finance</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>LinkedIn</span></div><div class="meta-item">📅 <span>il y a 18 heures</span></div></div>
+  <div class="job-snippet">Chargé Financements TMT Corporate & Project Finance - Banque de financement et d'investissement - La Defense, Ile de France, France - SOCIETE GENERALE ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://fr.indeed.com/viewjob?jk=70602da18a7e429c" target="_blank" class="title">M&A ET CORPORATE FINANCE F/H - 93210 Saint-Denis</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>Indeed</span></div><div class="meta-item">📅 <span>il y a 16 heures</span></div></div>
+  <div class="job-snippet">Réaliser des présentations pour les agences de notation ou pour le Groupe. Profil Recherché. Formation : stagiaire de fin d'étude ou 2ème partie de césure ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://www.jobteaser.com/fr/job-offers/a81c6b7b-181f-457c-8fec-1ce32aec3c4e-natixis-stage-6-mois-m-a-equity-and-debt-advisory-f-h" target="_blank" class="title">Stage - 6 mois - M&A, Equity and Debt advisory F/H</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>JobTeaser</span></div><div class="meta-item">📅 <span>il y a 15 heures</span></div></div>
+  <div class="job-snippet">Vous rejoignez notre équipe Strategic Sector Advisory, qui recherche un M&A, Equity and Debt advisory analyst, pour un stage de 6 mois à partir de janvier et ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://www.jobteaser.com/fr/job-offers/93c3d0b6-3c4a-428d-a666-942b633e6192-natixis-stage-6-mois-telecom-tech-industry-group-f-h" target="_blank" class="title">Stage - 6 mois - Telecom Tech Industry Group F/H</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>JobTeaser</span></div><div class="meta-item">📅 <span>il y a 15 heures</span></div></div>
+  <div class="job-snippet">Notre équipe vise à fournir le plus large éventail de solutions à ses clients des télécommunications, y compris des solutions de fusions et acquisitions, de ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://www.jobteaser.com/fr/job-offers/9d8efe51-ab42-4a3c-b945-3c163f6120fb-banque-internationale-a-luxembourg-bil-internship-valuation-analyst-real-estate-m-f" target="_blank" class="title">Internship - Valuation Analyst Real Estate (M/F)</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>JobTeaser</span></div><div class="meta-item">📅 <span>il y a 15 heures</span></div></div>
+  <div class="job-snippet">Télétravail · Suivi et analyse du marché immobilier local. · Analyse des éléments techniques et légaux des biens immobiliers. · Évaluation et réévaluation de biens ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://www.jobteaser.com/fr/job-offers/3eb6233b-231c-4747-a0cd-d1c28d3d021a-tikehau-capital-internship-equity-research-analyst-h-f-january-2026" target="_blank" class="title">Internship - Equity Research Analyst (H/F) - January 2026</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>JobTeaser</span></div><div class="meta-item">📅 <span>il y a 14 heures</span></div></div>
+  <div class="job-snippet">Nous recherchons un(e) stagiaire pour une durée de 6 mois dans un rôle d'analyse et de recherche sur les actions cotées, doté(e) de solides compétences ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://www.jobteaser.com/fr/job-offers/6fb6de23-cb96-4a1b-aca1-18875e324ad8-deloitte-belgium-finance-starting-in-september-2026" target="_blank" class="title">Finance - Starting in September 2026</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>JobTeaser</span></div><div class="meta-item">📅 <span>il y a 14 heures</span></div></div>
+  <div class="job-snippet">Description of the position In Finance , you'll employ our exciting range of services from advisory to due diligence, valuation and restructuring, ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://www.welcometothejungle.com/fr/companies/generale-du-solaire/jobs/stage-charge-d-operations-de-financement-h-f_paris" target="_blank" class="title">Stage - Chargé(e) d'Opérations de Financement (H/F)</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>Welcome to the Jungle</span></div><div class="meta-item">📅 <span>il y a 14 heures</span></div></div>
+  <div class="job-snippet">Première expérience (stage ou alternance) en project finance, financement d'actifs, audit, back ou middle office bancaire. Excellente maîtrise d'Excel et de ...</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://www.welcometothejungle.com/fr/companies/arkea-capital/jobs/stage-charge-de-missions-esg-en-capital-investissement-h-f_rennes" target="_blank" class="title">STAGE Chargé de missions ESG en Capital ...</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>Welcome to the Jungle</span></div><div class="meta-item">📅 <span>il y a 13 heures</span></div></div>
+  <div class="job-snippet">Consultant Stagiaire en Transaction Services - EY-Parthenon - Rennes - F/H. EY. Stage. Rennes. Télétravail non autorisé. Stratégie, Audit. 7 000 collaborateurs.</div>
+</div>
+
+
+<div class="job-card">
+  <a href="https://www.jobteaser.com/fr/job-offers/1fe17479-d1f7-4994-8357-2b7fc2acf338-generale-du-solaire-stage-charge-e-d-operations-de-financement-h-f" target="_blank" class="title">Stage - Chargé(e) d'Opérations de Financement (H/F)</a>
+  <div class="job-meta"><div class="meta-item">🔗 <span>JobTeaser</span></div><div class="meta-item">📅 <span>il y a 13 heures</span></div></div>
+  <div class="job-snippet">Première expérience (stage ou alternance) en project finance, financement d'actifs, audit, back ou middle office bancaire; Excellente maîtrise d'Excel et de ...</div>
+</div>
+              </td>
+            </tr>
+
+            <!-- FOOTER -->
+            <tr>
+              <td class="footer-section">
+                <div class="social-section">
+                  <h4>📺 Suivez-moi sur YouTube !</h4>
+                  <div class="social-links">
+                    <a href="https://www.youtube.com/@cash-routine" target="_blank">Ma chaîne YouTube</a>
+                  </div>
+                </div>
+
+                <div class="author-section">
+                  <div class="author-content">
+                    <img src="https://raw.githubusercontent.com/Grunti/Newsletters/main/docs/photo-louis4.jpg" alt="Louis Delahaye">
+                    <div class="author-text">
+                      <h4>À propos</h4>
+                      <p>Cette newsletter t'aide à trouver ton stage en Corporate Finance. Automatisée avec n8n, envoyée tous les matins.</p>
+                      <div class="author-links">
+                        <a href="https://calendly.com/louis-delahaye/30min">📅 Réserver 30 min</a>
+                        <a href="https://n8n.io/creators/louisdl/">💼 Mon portfolio</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p>Tu es inscrit aux alertes de stages.</p>
+                <p style="margin-top:20px;">
+                  <a href="https://forms.gle/sh4FdpuqVc48CpYZ8" style="background:#dc2626;color:#fff !important;padding:12px 24px;border-radius:12px;font-weight:700;font-size:15px;">✉️ Se désinscrire</a>
+                </p>
+
+                <div class="footer-copyright">
+                  © 2025 Newsletter Stages Corporate Finance<br>
+                  Créé avec ❤️ pour ta réussite professionnelle.
+                </div>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
