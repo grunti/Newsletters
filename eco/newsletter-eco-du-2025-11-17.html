@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <title>Actualité économique de la semaine</title>
+    <style>
+      /* Importation de la police Inter depuis Google Fonts */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+      /* Base styles for the email */
+      body {
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        color: #4A4A4A;
+        background-color: #F8F8F8;
+        margin: 0;
+        padding: 0;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        width: 100% !important;
+      }
+
+      table {
+        border-collapse: collapse;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      td {
+        padding: 0;
+      }
+
+      img {
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+        -ms-interpolation-mode: bicubic;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* Preheader text styling */
+      .preheader {
+        display: none;
+        font-size: 1px;
+        line-height: 1px;
+        max-height: 0px;
+        max-width: 0px;
+        opacity: 0;
+        overflow: hidden;
+        mso-hide: all;
+      }
+
+      /* Main container table */
+      .email-container {
+        max-width: 900px;
+        background-color: #FFFFFF;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      /* Header styling */
+      .header-section {
+        background-color: #FFB25E;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .header-section h1 {
+        color: #FFFFFF;
+        font-size: 32px;
+        margin: 0;
+        margin-bottom: 15px;
+        line-height: 1.2;
+      }
+
+      .subhead {
+        color: #FF9126;
+        font-size: 16px;
+        margin: 0;
+        opacity: 0.95;
+        font-weight: 700;
+        background-color: rgba(255, 255, 255, 0.65);
+        padding: 8px 16px;
+        border-radius: 20px;
+        display: inline-block;
+      }
+
+      .subhead a {
+        color: #cb6600;
+        text-decoration: underline;
+        font-weight: 700;
+      }
+
+      .subhead a:hover {
+        opacity: 0.8;
+      }
+
+      /* Content section */
+      .content-section {
+        padding: 20px;
+      }
+
+      .content-section h2 {
+        font-size: 24px;
+        color: #4A4A4A;
+        margin-bottom: 5px;
+        line-height: 1.3;
+      }
+
+      .content-section .source {
+        font-style: italic;
+        margin-top: 0;
+        margin-bottom: 15px;
+        color: #888888;
+        font-size: 14px;
+      }
+
+      .content-section p {
+        color: #4A4A4A;
+        line-height: 1.6;
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+
+      .article-link-wrapper {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .article-link {
+        color: #FFB25E;
+        text-decoration: underline;
+        font-weight: bold;
+        display: inline-block;
+        padding: 10px 0;
+      }
+
+      .divider {
+        border-top: 1px solid #E0E0E0;
+        margin: 40px 0;
+      }
+
+      /* Newsletter promotion section */
+      .newsletter-promo {
+        background: linear-gradient(to right, #cacaca, #7a7a7a);
+        padding: 30px 20px;
+        text-align: center;
+        margin: 40px 0;
+        border-radius: 12px;
+      }
+
+      .newsletter-promo h3 {
+        color: #FFFFFF;
+        font-size: 24px;
+        margin: 0 0 10px 0;
+        font-weight: 700;
+      }
+
+      .newsletter-promo p {
+        color: #FFFFFF;
+        margin: 0 0 20px 0;
+        opacity: 0.9;
+        font-size: 16px;
+      }
+
+      .newsletter-promo-button {
+        background-color: #FFFFFF;
+        color: #FF9126;
+        padding: 14px 28px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .newsletter-promo-button:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Author signature section */
+      .author-section {
+        background-color: #FAFAFA;
+        padding: 30px 20px;
+        border-radius: 12px;
+        margin: 30px 0;
+        border-left: 4px solid #FFB25E;
+      }
+
+      .author-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .author-photo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+
+      .author-text {
+        flex: 1;
+      }
+
+      .author-text h4 {
+        color: #4A4A4A;
+        font-size: 18px;
+        margin: 0 0 10px 0;
+        font-weight: 700;
+      }
+
+      .author-text p {
+        color: #666666;
+        line-height: 1.6;
+        margin: 0 0 15px 0;
+        font-size: 15px;
+      }
+
+      .author-links {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .author-link {
+        background-color: #FFB25E;
+        color: #FFFFFF;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+      }
+
+      .author-link:hover {
+        background-color: #FF9126;
+      }
+
+      .author-link.secondary {
+        background-color: #FF9126;
+      }
+
+      .author-link.secondary:hover {
+        background-color: #e67e1a;
+      }
+
+      .author-link.tertiary {
+        background-color: #7a7a7a;
+      }
+
+      .author-link.tertiary:hover {
+        background-color: #5a5a5a;
+      }
+
+      /* Social links section */
+      .social-section {
+        text-align: center;
+        padding: 30px 20px;
+        background-color: #FAFAFA;
+        border-radius: 12px;
+        margin: 30px 0;
+      }
+
+      .social-section h4 {
+        color: #4A4A4A;
+        font-size: 20px;
+        margin: 0 0 20px 0;
+        font-weight: 700;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .social-link {
+        background-color: #FFB25E;
+        color: #FFFFFF;
+        padding: 12px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+      }
+
+      .social-link:hover {
+        background-color: #FF9126;
+      }
+
+      .social-link.youtube {
+        background-color: #FF0000;
+      }
+
+      .social-link.youtube:hover {
+        background-color: #cc0000;
+      }
+
+      /* Footer section */
+      .footer-section {
+        background-color: #F8F8F8;
+        padding: 30px 20px;
+        text-align: center;
+        border-top: 1px solid #E0E0E0;
+      }
+
+      .unsubscribe-button {
+        background-color: #FFB25E;
+        color: #FFFFFF;
+        padding: 12px 24px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+      }
+
+      .unsubscribe-button:hover {
+        background-color: #FF9126;
+      }
+
+      .footer-text {
+        font-size: 14px;
+        color: #666666;
+        margin: 0;
+      }
+
+      /* Dark mode support */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #1a1a1a !important;
+          color: #e0e0e0 !important;
+        }
+        
+        .email-container {
+          background-color: #2d2d2d !important;
+        }
+        
+        .content-section h2 {
+          color: #ffffff !important;
+        }
+        
+        .content-section p {
+          color: #e0e0e0 !important;
+        }
+        
+        .content-section .source {
+          color: #b0b0b0 !important;
+        }
+        
+        .author-section {
+          background-color: #242424 !important;
+          border-left-color: #FFB25E !important;
+        }
+        
+        .author-text h4 {
+          color: #ffffff !important;
+        }
+        
+        .author-text p {
+          color: #b0b0b0 !important;
+        }
+        
+        .social-section {
+          background-color: #242424 !important;
+        }
+        
+        .social-section h4 {
+          color: #ffffff !important;
+        }
+        
+        .footer-section {
+          background-color: #1a1a1a !important;
+          border-top-color: #3a3a3a !important;
+        }
+        
+        .footer-text {
+          color: #b0b0b0 !important;
+        }
+        
+        .divider {
+          border-top-color: #3a3a3a !important;
+        }
+      }
+
+      /* Media Queries for responsiveness */
+      @media screen and (max-width: 600px) {
+        .email-container {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+
+        .header-section {
+          padding: 30px 15px !important;
+        }
+
+        .header-section h1 {
+          font-size: 28px !important;
+        }
+
+        .subhead {
+          font-size: 14px !important;
+          padding: 6px 12px !important;
+        }
+
+        .content-section {
+          padding: 15px !important;
+        }
+
+        .content-section h2 {
+          font-size: 20px !important;
+        }
+
+        .content-section p {
+          font-size: 15px !important;
+        }
+
+        .divider {
+          margin: 30px 0 !important;
+        }
+
+        .newsletter-promo {
+          padding: 25px 15px !important;
+        }
+
+        .newsletter-promo h3 {
+          font-size: 20px !important;
+        }
+
+        .author-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .author-photo {
+          width: 60px;
+          height: 60px;
+        }
+
+        .author-links {
+          justify-content: center;
+        }
+
+        .social-links {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .social-link {
+          width: 100%;
+          box-sizing: border-box;
+        }
+
+        .footer-section {
+          padding: 25px 15px !important;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .header-section h1 {
+          font-size: 24px !important;
+        }
+        .subhead {
+          font-size: 13px !important;
+        }
+        .content-section h2 {
+          font-size: 18px !important;
+        }
+        .content-section p {
+          font-size: 14px !important;
+        }
+        .unsubscribe-button {
+          padding: 10px 20px !important;
+          font-size: 14px !important;
+        }
+        .author-links {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .author-link {
+          width: 100%;
+          box-sizing: border-box;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body style="font-family: 'Inter', sans-serif; font-size: 16px; color: #4A4A4A; background-color: #F8F8F8; margin: 0; padding: 0;">
+
+    <!-- Preheader text -->
+    <div class="preheader">
+      Votre dose quotidienne d'actualité économique ☕️ - Les 6 articles essentiels du jour sélectionnés pour vous
+    </div>
+
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td align="center">
+          <!-- Main Email Container Table -->
+          <table class="email-container" cellpadding="0" cellspacing="0" border="0">
+
+            <!-- Header Section -->
+            <tr>
+              <td class="header-section">
+                <h1>Actualité économique du jour ☕️</h1>
+                <p class="subhead">Made by Louis Delahaye with the use of an ai agent on <a href="https://n8n.partnerlinks.io/cm1t54p7lwdw" target="_blank">n8n</a> - delivered every day at 16h</p>
+              </td>
+            </tr>
+
+            <!-- Content Section -->
+            <tr>
+              <td class="content-section">
+
+                <!-- Personal Message -->
+                <div style="background-color: #f9f9f9; border-left: 3px solid #FFB25E; padding: 20px; margin: 30px 0 40px 0; border-radius: 4px;">
+                  <p style="margin: 0 0 15px 0; color: #4A4A4A; line-height: 1.6;">
+                    Salut ! Avant de plonger dans l'actualité, j'aimerais bien avoir ton retour sur cette newsletter, cela m'aiderait vraiment à l'améliorer.
+                  </p>
+                  <p style="margin: 0 0 10px 0; color: #4A4A4A; line-height: 1.6;">
+                    Ça te prendrait 45 secondes chrono, pour répondre à ces trois questions (réponses anonymes) :
+                  </p>
+                  <ul style="margin: 0 0 15px 0; padding-left: 20px; color: #4A4A4A; line-height: 1.6;">
+                    <li>Sur le format</li>
+                    <li>Sur le fond</li>
+                    <li>Sur ton intérêt personnel</li>
+                  </ul>
+                  <p style="margin: 0 0 15px 0; color: #4A4A4A; line-height: 1.6;">
+                    <a href="https://forms.gle/Xdst7zJkCpJqR7Ke6" target="_blank" style="color: #FF9126; text-decoration: underline; font-weight: 600;">👉 Partager mon avis en 45 secondes</a>
+                  </p>
+                  <p style="margin: 0; color: #4A4A4A; line-height: 1.6;">
+                    Merci à toi et bonne lecture ! 😉
+                  </p>
+                </div>
+
+                <!-- Article 1 -->
+                <h2>L'Allemagne veut former des investisseurs dès l'enfance 🇩🇪</h2>
+                <p class="source">(Libération)</p>
+                <p>Imagine commencer à préparer ta retraite dès l’école primaire. C'est le projet audacieux de l'Allemagne, qui veut verser 10€ par mois à chaque enfant dès 6 ans pour les initier aux marchés financiers. L'idée est de créer une génération d'investisseurs avertis et de renforcer le système de retraite par capitalisation. Pour toi et ton business, c’est un signal fort : l’éducation financière devient un enjeu stratégique majeur. Surveille cette tendance, car elle pourrait inspirer des politiques similaires et changer durablement notre rapport à l’épargne. 📈</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.liberation.fr/economie/prevoir-sa-retraite-des-6-ans-lallemagne-y-songe-serieusement-20251107_CLU6XSKH6BD77PDMGGOUS6R7U4/" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- Article 2 -->
+                <h2>Marchés en hausse : ce risque caché qui menace tes investissements</h2>
+                <p class="source">(Capital)</p>
+                <p>Les marchés actions affichent une belle santé, portés par l'espoir de baisses de taux et une économie qui résiste. Mais derrière cette euphorie se cache un risque majeur pour tes investissements : la consommation américaine. 🇺🇸 Il y a une vraie fracture : les plus riches dépensent sans compter, boostés par la Bourse, tandis que la majorité des ménages commence à peiner, entre crédits et pertes d'emplois. Cette fragilité est une bombe à retardement. Si la consommation américaine flanche, les profits des entreprises suivront, et les marchés aussi. C'est un indicateur clé à surveiller de près. 👀</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.capital.fr/entreprises-marches/cac-40-nasdaq-sp-500-la-bourse-et-les-etf-sur-actions-ont-ils-du-potentiel-gare-a-la-consommation-1520758" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- Article 3 -->
+                <h2>Tesla : les actionnaires misent tout sur Elon Musk 🚀</h2>
+                <p class="source">(Le Figaro)</p>
+                <p>Les actionnaires de Tesla ont tranché : ils parient tout sur Elon Musk en validant son plan de rémunération colossal. Pour tes investissements ou ton business, c'est un signal majeur. Cette décision ancre Musk au volant pour les années à venir, le poussant vers des objectifs ultra-ambitieux en IA et robotique. La stratégie est claire : la valeur de Tesla est inséparable de son visionnaire. C'est une approche à haut risque, qui concentre tout sur un seul homme, mais dont le potentiel de gain est jugé immense. Un cas d'école à suivre de près ! 🧠</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.lefigaro.fr/conjoncture/les-actionnaires-de-tesla-votent-sur-la-tres-debattue-remuneration-a-1-000-milliards-de-dollars-d-elon-musk-20251106" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <!-- Newsletter IA Promotion Section -->
+                <div class="newsletter-promo">
+                  <h3>Ce format de newsletter te plaît ? Alors va voir ma newsletter IA ☕️</h3>
+                  <p>Découvre chaque semaine les dernières actualités IA qui comptent vraiment !</p>
+                  <a href="https://forms.gle/CEmkir9BHM9WDzfv7" target="_blank" class="newsletter-promo-button">
+                    S'inscrire gratuitement
+                  </a>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Article 4 -->
+                <h2>Ton découvert bancaire, bientôt mieux protégé 🛡️</h2>
+                <p class="source">(Capital)</p>
+                <p>Tu craignais un durcissement des règles sur ton découvert bancaire ? En réalité, la nouvelle législation de 2026 est plutôt une bonne nouvelle pour tes finances. En classant les petits découverts comme des crédits à la consommation, elle impose aux banques de plafonner leurs frais au taux d'usure. Fini les coûts démesurés sur les petites sommes ! 💰 Pour toi, c’est la garantie d’une meilleure protection et de plus de transparence. Ta banque devra simplement formaliser une analyse de solvabilité, une pratique déjà courante. C'est une évolution vers un système plus juste à surveiller pour bien gérer ton budget. 💡</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.capital.fr/votre-argent/decouvert-bancaire-une-punition-pour-les-gens-modestes-un-avocat-repond-a-vos-questions-1520530" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- Article 5 -->
+                <h2>L'IA : un jeu de géants financé par eux-mêmes 🤖</h2>
+                <p class="source">(France 24)</p>
+                <p>Nvidia investit 100 milliards de dollars dans OpenAI, le créateur de ChatGPT. Loin d'être un simple chèque, cet argent servira à construire des data centers qui tourneront… avec des puces Nvidia ! C'est une boucle financière parfaite : Nvidia finance son propre client qui, en retour, achète ses produits. Pour tes investissements et ton business, cela révèle un écosystème fermé, contrôlé par une poignée de géants qui se renforcent mutuellement. Cette concentration de pouvoir solidifie leur domination et rend l'entrée de nouveaux concurrents quasi impossible. Une tendance de fond à surveiller de près ! 🚀</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.france24.com/fr/%C3%A9missions/info-%C3%A9co/20251106-le-gouvernement-fran%C3%A7ais-part-en-guerre-contre-shein" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- Article 6 -->
+                <h2>IA : L'investissement circulaire qui verrouille le marché 💸</h2>
+                <p class="source">(France 24)</p>
+                <p>Nvidia injecte 100 milliards de dollars dans OpenAI, mais ce n'est pas un simple investissement. C’est une boucle économique quasi parfaite ! 🤯 Cet argent servira à OpenAI pour construire des data centers qui tourneront avec… des puces Nvidia. Autrement dit, Nvidia finance son meilleur client pour qu'il lui achète encore plus de matériel. Cette stratégie en circuit fermé verrouille le marché de l'IA au profit d'une poignée de géants. Pour tes investissements ou ton business, c'est un signal fort : la croissance de ce secteur est pour l'instant l'affaire d'un club très fermé à surveiller de près. 🚀</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.france24.com/fr/info-en-continu/20251106-les-actionnaires-de-tesla-votent-sur-le-package-%C3%A0-1-000-milliards-de-musk" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <!-- Social Links Section -->
+                <div class="social-section">
+                  <h4>Suivez-moi et partagez la newsletter ! 🚀</h4>
+                  <div class="social-links">
+                    <a href="https://www.youtube.com/@cash-routine" target="_blank" class="social-link youtube">
+                      📺 Ma chaîne YouTube
+                    </a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScaY5kf2cBudSdf0UJWt0uUc3HVRDH69V91PY3bIMaQiQZenA/viewform?usp=share_link&ouid=108667181561353845464" target="_blank" class="social-link">
+                      📤 Partager cette newsletter
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Author Signature Section -->
+                <div class="author-section">
+                  <div class="author-content">
+                    <img src="https://raw.githubusercontent.com/Grunti/Newsletters/main/docs/photo-louis4.jpg" alt="Photo de Louis Delahaye, créateur de la newsletter économique quotidienne" class="author-photo">
+                    <div class="author-text">
+                      <h4>Je t'en dis plus sur moi..!</h4>
+                      <p>J'ai créé cette newsletter pour avoir un condensé rapide, simple et récurrent de l'actualité économique et financière dans ma boîte mail, le tout sans prise de tête ! Je suis curieux d'avoir tes retours, n'hésite pas à m'en faire en répondant à ce mail !</p>
+                      <p>Tu veux parler agent IA ou Business ? Réserve un créneau de 30 min avec moi !</p>
+                      <div class="author-links">
+                        <a href="https://calendly.com/louis-delahaye/30min" class="author-link">📅 Réserver un créneau</a>
+                        <a href="https://n8n.io/creators/louisdl/" class="author-link secondary">🔗 Mon portfolio</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </td>
+            </tr>
+
+            <!-- Footer Section with Unsubscribe -->
+            <tr>
+              <td class="footer-section">
+                <p class="footer-text">Don't want to receive these emails anymore?</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScaY5kf2cBudSdf0UJWt0uUc3HVRDH69V91PY3bIMaQiQZenA/viewform?usp=share_link&ouid=108667181561353845464" target="_blank" class="unsubscribe-button">
+                  Se désabonner
+                </a>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+
+  </body>
+</html>
