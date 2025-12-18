@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <title>Actualité IA et Data de la semaine</title>
+    <style>
+      /* Importation de la police Inter depuis Google Fonts */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+      /* Base styles for the email */
+      body {
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        color: #4A4A4A;
+        background-color: #F8F8F8;
+        margin: 0;
+        padding: 0;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        width: 100% !important;
+      }
+
+      table {
+        border-collapse: collapse;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      td {
+        padding: 0;
+      }
+
+      img {
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+        -ms-interpolation-mode: bicubic;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* Preheader text styling */
+      .preheader {
+        display: none;
+        font-size: 1px;
+        line-height: 1px;
+        max-height: 0px;
+        max-width: 0px;
+        opacity: 0;
+        overflow: hidden;
+        mso-hide: all;
+      }
+
+      /* Main container table */
+      .email-container {
+        max-width: 900px;
+        background-color: #FFFFFF;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      /* Header styling */
+      .header-section {
+        background-color: #FFB25E;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .header-section h1 {
+        color: #FFFFFF;
+        font-size: 32px;
+        margin: 0;
+        margin-bottom: 15px;
+        line-height: 1.2;
+      }
+
+      .subhead {
+        color: #FF9126;
+        font-size: 16px;
+        margin: 0;
+        opacity: 0.95;
+        font-weight: 700;
+        background-color: rgba(255, 255, 255, 0.65);
+        padding: 8px 16px;
+        border-radius: 20px;
+        display: inline-block;
+      }
+
+      .subhead a {
+        color: #cb6600;
+        text-decoration: underline;
+        font-weight: 700;
+      }
+
+      .subhead a:hover {
+        opacity: 0.8;
+      }
+
+      /* Content section */
+      .content-section {
+        padding: 20px;
+      }
+
+      .content-section h2 {
+        font-size: 24px;
+        color: #4A4A4A;
+        margin-bottom: 5px;
+        line-height: 1.3;
+      }
+
+      .content-section .source {
+        font-style: italic;
+        margin-top: 0;
+        margin-bottom: 15px;
+        color: #888888;
+        font-size: 14px;
+      }
+
+      .content-section p {
+        color: #4A4A4A;
+        line-height: 1.6;
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+
+      .article-link-wrapper {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .article-link {
+        color: #FFB25E;
+        text-decoration: underline;
+        font-weight: bold;
+        display: inline-block;
+        padding: 10px 0;
+      }
+
+      .divider {
+        border-top: 1px solid #E0E0E0;
+        margin: 40px 0;
+      }
+
+      /* Newsletter promotion section */
+      .newsletter-promo {
+        background: linear-gradient(to right, #cacaca, #7a7a7a);
+        padding: 30px 20px;
+        text-align: center;
+        margin: 40px 0;
+        border-radius: 12px;
+      }
+
+      .newsletter-promo h3 {
+        color: #FFFFFF;
+        font-size: 24px;
+        margin: 0 0 10px 0;
+        font-weight: 700;
+      }
+
+      .newsletter-promo p {
+        color: #FFFFFF;
+        margin: 0 0 20px 0;
+        opacity: 0.9;
+        font-size: 16px;
+      }
+
+      .newsletter-promo-button {
+        background-color: #FFFFFF;
+        color: #FF9126;
+        padding: 14px 28px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .newsletter-promo-button:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Author signature section */
+      .author-section {
+        background-color: #FAFAFA;
+        padding: 30px 20px;
+        border-radius: 12px;
+        margin: 30px 0;
+        border-left: 4px solid #FFB25E;
+      }
+
+      .author-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .author-photo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+
+      .author-text {
+        flex: 1;
+      }
+
+      .author-text h4 {
+        color: #4A4A4A;
+        font-size: 18px;
+        margin: 0 0 10px 0;
+        font-weight: 700;
+      }
+
+      .author-text p {
+        color: #666666;
+        line-height: 1.6;
+        margin: 0 0 15px 0;
+        font-size: 15px;
+      }
+
+      .author-links {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .author-link {
+        background-color: #FFB25E;
+        color: #FFFFFF;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+      }
+
+      .author-link:hover {
+        background-color: #FF9126;
+      }
+
+      .author-link.secondary {
+        background-color: #FF9126;
+      }
+
+      .author-link.secondary:hover {
+        background-color: #e67e1a;
+      }
+
+      .author-link.tertiary {
+        background-color: #7a7a7a;
+      }
+
+      .author-link.tertiary:hover {
+        background-color: #5a5a5a;
+      }
+
+      /* Social links section */
+      .social-section {
+        text-align: center;
+        padding: 30px 20px;
+        background-color: #FAFAFA;
+        border-radius: 12px;
+        margin: 30px 0;
+      }
+
+      .social-section h4 {
+        color: #4A4A4A;
+        font-size: 20px;
+        margin: 0 0 20px 0;
+        font-weight: 700;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .social-link {
+        background-color: #FFB25E;
+        color: #FFFFFF;
+        padding: 12px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+      }
+
+      .social-link:hover {
+        background-color: #FF9126;
+      }
+
+      .social-link.youtube {
+        background-color: #FF0000;
+      }
+
+      .social-link.youtube:hover {
+        background-color: #cc0000;
+      }
+
+      /* Footer section */
+      .footer-section {
+        background-color: #F8F8F8;
+        padding: 30px 20px;
+        text-align: center;
+        border-top: 1px solid #E0E0E0;
+      }
+
+      .unsubscribe-button {
+        background-color: #FFB25E;
+        color: #FFFFFF;
+        padding: 12px 24px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+      }
+
+      .unsubscribe-button:hover {
+        background-color: #FF9126;
+      }
+
+      .footer-text {
+        font-size: 14px;
+        color: #666666;
+        margin: 0;
+      }
+
+      /* Dark mode support */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #1a1a1a !important;
+          color: #e0e0e0 !important;
+        }
+        
+        .email-container {
+          background-color: #2d2d2d !important;
+        }
+        
+        .content-section h2 {
+          color: #ffffff !important;
+        }
+        
+        .content-section p {
+          color: #e0e0e0 !important;
+        }
+        
+        .content-section .source {
+          color: #b0b0b0 !important;
+        }
+        
+        .author-section {
+          background-color: #242424 !important;
+          border-left-color: #FFB25E !important;
+        }
+        
+        .author-text h4 {
+          color: #ffffff !important;
+        }
+        
+        .author-text p {
+          color: #b0b0b0 !important;
+        }
+        
+        .social-section {
+          background-color: #242424 !important;
+        }
+        
+        .social-section h4 {
+          color: #ffffff !important;
+        }
+        
+        .footer-section {
+          background-color: #1a1a1a !important;
+          border-top-color: #3a3a3a !important;
+        }
+        
+        .footer-text {
+          color: #b0b0b0 !important;
+        }
+        
+        .divider {
+          border-top-color: #3a3a3a !important;
+        }
+      }
+
+      /* Media Queries for responsiveness */
+      @media screen and (max-width: 600px) {
+        .email-container {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+
+        .header-section {
+          padding: 30px 15px !important;
+        }
+
+        .header-section h1 {
+          font-size: 28px !important;
+        }
+
+        .subhead {
+          font-size: 14px !important;
+          padding: 6px 12px !important;
+        }
+
+        .content-section {
+          padding: 15px !important;
+        }
+
+        .content-section h2 {
+          font-size: 20px !important;
+        }
+
+        .content-section p {
+          font-size: 15px !important;
+        }
+
+        .divider {
+          margin: 30px 0 !important;
+        }
+
+        .newsletter-promo {
+          padding: 25px 15px !important;
+        }
+
+        .newsletter-promo h3 {
+          font-size: 20px !important;
+        }
+
+        .author-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .author-photo {
+          width: 60px;
+          height: 60px;
+        }
+
+        .author-links {
+          justify-content: center;
+        }
+
+        .social-links {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .social-link {
+          width: 100%;
+          box-sizing: border-box;
+        }
+
+        .footer-section {
+          padding: 25px 15px !important;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .header-section h1 {
+          font-size: 24px !important;
+        }
+        .subhead {
+          font-size: 13px !important;
+        }
+        .content-section h2 {
+          font-size: 18px !important;
+        }
+        .content-section p {
+          font-size: 14px !important;
+        }
+        .unsubscribe-button {
+          padding: 10px 20px !important;
+          font-size: 14px !important;
+        }
+        .author-links {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .author-link {
+          width: 100%;
+          box-sizing: border-box;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body style="font-family: 'Inter', sans-serif; font-size: 16px; color: #4A4A4A; background-color: #F8F8F8; margin: 0; padding: 0;">
+
+    <!-- Preheader text -->
+    <div class="preheader">
+      Votre dose hebdomadaire d'actualité IA ☕️ - Les 6 articles essentiels de la semaine sélectionnés pour vous
+    </div>
+
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td align="center">
+          <!-- Main Email Container Table -->
+          <table class="email-container" cellpadding="0" cellspacing="0" border="0">
+
+            <!-- Header Section -->
+            <tr>
+              <td class="header-section">
+                <h1>Les News IA de la semaine ☕️</h1>
+                <p class="subhead">Made by Louis Delahaye with the use of an ai agent on <a href="https://n8n.partnerlinks.io/cm1t54p7lwdw" target="_blank">n8n</a> - delivered every week</p>
+              </td>
+            </tr>
+
+            <!-- Content Section -->
+            <tr>
+              <td class="content-section">
+
+                <!-- Article 1 -->
+                <h2>Votre assistant IA devient plus rapide et plus fiable 🧠</h2>
+                <p class="source">(wired.com)</p>
+                <p>Face à la pression de Google, OpenAI vient de lancer une mise à jour majeure pour son intelligence artificielle. Cette nouvelle version est non seulement plus performante pour des tâches comme la rédaction ou le code, mais elle est surtout beaucoup plus fiable. Les "hallucinations", ces erreurs factuelles parfois gênantes, ont été considérablement réduites. Mieux encore, sur une série de tests professionnels, l'IA a surpassé les experts humains dans 70% des cas, tout en étant 11 fois plus rapide. C'est une avancée qui pose la question : quelles nouvelles tâches pourriez-vous automatiser pour accélérer votre croissance ? 🚀</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.wired.com/story/openai-gpt-launch-gemini-code-red/" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- Article 2 -->
+                <h2>Navigateurs IA : Prudence avant l'adoption ⚠️</h2>
+                <p class="source">(LeMondeInformatique)</p>
+                <p>Les nouveaux navigateurs dopés à l'IA, comme ceux d'OpenAI ou Perplexity, promettent de révolutionner notre façon de travailler. Attention cependant, le cabinet Gartner tire la sonnette d'alarme ⚠️. Le problème ? Pour fonctionner, ces outils envoient vos données de navigation et le contenu de vos pages à des serveurs externes. Vous perdez ainsi le contrôle sur des informations potentiellement sensibles. Pire, leur capacité à agir à votre place (remplir un formulaire, etc.) crée de nouvelles failles de sécurité. La technologie est encore jeune. La recommandation est donc de bloquer leur usage en entreprise pour le moment, le temps que la sécurité se renforce. 🤔</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.lemondeinformatique.fr/actualites/lire-gartner-alerte-sur-l-usage-des-navigateurs-ia-en-entreprise-98791.html" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- Article 3 -->
+                <h2>Votre site web n'est plus votre vitrine principale 🤖</h2>
+                <p class="source">(Journal Du Net)</p>
+                <p>Vous pensiez que votre site web était le premier contact avec vos clients ? Détrompez-vous. De plus en plus, vos prospects se tournent d'abord vers des intelligences artificielles comme ChatGPT pour obtenir des recommandations. L'IA est devenue la nouvelle porte d'entrée de votre marque. Le problème, c'est qu'elle parle déjà de vous, que vous le vouliez ou non. Si vos informations sont mal présentées, vous risquez d'être invisible ou mal représenté. Prenez le contrôle ! En structurant vos données pour ces outils, vous transformez l'IA en un commercial qui travaille pour vous 24/7. Ne laissez pas un algorithme raconter votre histoire à votre place. 📢</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.journaldunet.com/martech/1546571-les-achats-de-fin-d-annee-se-font-ils-deja-sous-l-influence-de-l-ia/" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <!-- Newsletter Économique Promotion Section -->
+                <div class="newsletter-promo">
+                  <h3>Newsletter Économique de Louis 📈</h3>
+                  <p>Découvre chaque jour les actualités économiques les plus importantes !</p>
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLScaY5kf2cBudSdf0UJWt0uUc3HVRDH69V91PY3bIMaQiQZenA/viewform?usp=share_link&ouid=108667181561353845464" target="_blank" class="newsletter-promo-button">
+                    S'inscrire gratuitement
+                  </a>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Article 4 -->
+                <h2>L'IA, votre nouveau partenaire stratégique 🚀</h2>
+                <p class="source">(Journal Du Net)</p>
+                <p>Vous pensez que l'IA sert juste à rédiger des documents plus vite ? Détrompez-vous. Son vrai pouvoir est de transformer *comment* vos équipes travaillent, pas seulement *ce sur quoi* elles travaillent. La révolution est collective : imaginez remplacer des semaines de documentation par un prototype généré en quelques heures, prêt à être testé. 🚀 En faisant de l'IA un outil partagé, vous ne gagnez pas seulement en productivité, vous réinventez vos processus pour innover plus vite. C'est l'opportunité de construire des équipes plus agiles et de prendre une longueur d'avance.</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.journaldunet.com/intelligence-artificielle/1546639-ia-et-management-de-produit-ce-qu-on-ne-vous-dit-pas/" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- Article 5 -->
+                <h2>Vos caméras de surveillance deviennent intelligentes 🚗</h2>
+                <p class="source">(LeMondeInformatique)</p>
+                <p>Imaginez que vos caméras de surveillance ne se contentent plus de filmer, mais qu'elles comprennent ce qu'elles voient. C'est l'avancée majeure proposée par le fabricant Axis, qui intègre désormais une IA capable d'analyser les véhicules. Concrètement, la caméra identifie la plaque d'immatriculation, la marque et le modèle d'une voiture, même lancée à pleine vitesse. Pour votre entreprise, c'est une petite révolution pour la gestion des parkings, la sécurité des accès ou l'analyse du trafic. 📈 Vos caméras deviennent de vrais capteurs de données intelligentes, ouvrant la voie à de nouveaux services.</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.lemondeinformatique.fr/actualites/lire-axis-acquiert-ff-group-pour-enrichir-ses-cameras-de-surveillance-98737.html" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- Article 6 -->
+                <h2>Le navigateur qui crée des outils pour vous ✨</h2>
+                <p class="source">(LeMondeInformatique)</p>
+                <p>Et si vous pouviez créer un outil sur mesure pour votre entreprise, sans écrire une seule ligne de code ? C'est la vision de Google avec son nouveau navigateur expérimental, Disco. Il vous suffit de décrire en langage naturel ce dont vous avez besoin – un planificateur de contenu ou une carte interactive, par exemple – et une IA intégrée génère une mini-application pour vous. 🛠️ Bien que ce ne soit qu'un début, imaginez les possibilités futures : créer à la volée des outils qui répondent précisément à vos besoins, démocratisant la création de logiciels pour tous.</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.lemondeinformatique.fr/actualites/lire-telex-oracle-decale-ses-datacenters-ia-pour-openai-seine-et-yvelines-numerique-epingle-google-labs-devoile-le-navigateur-disco-98796.html" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <!-- Social Links Section -->
+                <div class="social-section">
+                  <h4>Suivez-moi et partagez la newsletter ! 🚀</h4>
+                  <div class="social-links">
+                    <a href="https://www.youtube.com/@cash-routine" target="_blank" class="social-link youtube">
+                      📺 Ma chaîne YouTube
+                    </a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScaY5kf2cBudSdf0UJWt0uUc3HVRDH69V91PY3bIMaQiQZenA/viewform?usp=share_link&ouid=108667181561353845464" target="_blank" class="social-link">
+                      📤 Partager cette newsletter
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Author Signature Section -->
+                <div class="author-section">
+                  <div class="author-content">
+                    <img src="https://raw.githubusercontent.com/Grunti/Newsletters/main/docs/photo-louis4.jpg" alt="Photo de Louis Delahaye, créateur de la newsletter IA hebdomadaire" class="author-photo">
+                    <div class="author-text">
+                      <h4>Je t'en dis plus sur moi..!</h4>
+                      <p>J'ai créé cette newsletter pour avoir un aperçu rapide, simple et récurrent dans ma boîte mail des nouveautés autour de l'IA, le tout sans prise de tête ! Je suis curieux d'avoir tes retours, n'hésite pas à m'en faire en répondant à ce mail !</p>
+                      <p>Tu veux parler agent IA ou Business ? Réserve un créneau de 30 min avec moi !</p>
+                      <div class="author-links">
+                        <a href="https://calendly.com/louis-delahaye/30min" class="author-link">📅 Réserver un créneau</a>
+                        <a href="https://n8n.io/creators/louisdl/" class="author-link secondary">🔗 Mon portfolio</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </td>
+            </tr>
+
+            <!-- Footer Section with Unsubscribe -->
+            <tr>
+              <td class="footer-section">
+                <p class="footer-text">Don't want to receive these emails anymore?</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSedeZpU7VFS_AspOfhx9YDJ4YHFkRa4xgS9fTUTOjugPCgJgQ/viewform?usp=pp_url&entry.1340514408=Oui" target="_blank" class="unsubscribe-button">
+                  Se désabonner
+                </a>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+
+  </body>
+</html>
