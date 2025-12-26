@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <title>Actualité IA et Data de la semaine</title>
+    <style>
+      /* Importation de la police Inter depuis Google Fonts */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+      /* Base styles for the email */
+      body {
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        color: #4A4A4A;
+        background-color: #F8F8F8;
+        margin: 0;
+        padding: 0;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        width: 100% !important;
+      }
+
+      table {
+        border-collapse: collapse;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      td {
+        padding: 0;
+      }
+
+      img {
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+        -ms-interpolation-mode: bicubic;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* Preheader text styling */
+      .preheader {
+        display: none;
+        font-size: 1px;
+        line-height: 1px;
+        max-height: 0px;
+        max-width: 0px;
+        opacity: 0;
+        overflow: hidden;
+        mso-hide: all;
+      }
+
+      /* Main container table */
+      .email-container {
+        max-width: 900px;
+        background-color: #FFFFFF;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      /* Header styling */
+      .header-section {
+        background-color: #FFB25E;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .header-section h1 {
+        color: #FFFFFF;
+        font-size: 32px;
+        margin: 0;
+        margin-bottom: 15px;
+        line-height: 1.2;
+      }
+
+      .subhead {
+        color: #FF9126;
+        font-size: 16px;
+        margin: 0;
+        opacity: 0.95;
+        font-weight: 700;
+        background-color: rgba(255, 255, 255, 0.65);
+        padding: 8px 16px;
+        border-radius: 20px;
+        display: inline-block;
+      }
+
+      .subhead a {
+        color: #cb6600;
+        text-decoration: underline;
+        font-weight: 700;
+      }
+
+      .subhead a:hover {
+        opacity: 0.8;
+      }
+
+      /* Content section */
+      .content-section {
+        padding: 20px;
+      }
+
+      .content-section h2 {
+        font-size: 24px;
+        color: #4A4A4A;
+        margin-bottom: 5px;
+        line-height: 1.3;
+      }
+
+      .content-section .source {
+        font-style: italic;
+        margin-top: 0;
+        margin-bottom: 15px;
+        color: #888888;
+        font-size: 14px;
+      }
+
+      .content-section p {
+        color: #4A4A4A;
+        line-height: 1.6;
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+
+      .article-link-wrapper {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .article-link {
+        color: #FFB25E;
+        text-decoration: underline;
+        font-weight: bold;
+        display: inline-block;
+        padding: 10px 0;
+      }
+
+      .divider {
+        border-top: 1px solid #E0E0E0;
+        margin: 40px 0;
+      }
+
+      /* Newsletter promotion section */
+      .newsletter-promo {
+        background: linear-gradient(to right, #cacaca, #7a7a7a);
+        padding: 30px 20px;
+        text-align: center;
+        margin: 40px 0;
+        border-radius: 12px;
+      }
+
+      .newsletter-promo h3 {
+        color: #FFFFFF;
+        font-size: 24px;
+        margin: 0 0 10px 0;
+        font-weight: 700;
+      }
+
+      .newsletter-promo p {
+        color: #FFFFFF;
+        margin: 0 0 20px 0;
+        opacity: 0.9;
+        font-size: 16px;
+      }
+
+      .newsletter-promo-button {
+        background-color: #FFFFFF;
+        color: #FF9126;
+        padding: 14px 28px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .newsletter-promo-button:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Author signature section */
+      .author-section {
+        background-color: #FAFAFA;
+        padding: 30px 20px;
+        border-radius: 12px;
+        margin: 30px 0;
+        border-left: 4px solid #FFB25E;
+      }
+
+      .author-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .author-photo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+
+      .author-text {
+        flex: 1;
+      }
+
+      .author-text h4 {
+        color: #4A4A4A;
+        font-size: 18px;
+        margin: 0 0 10px 0;
+        font-weight: 700;
+      }
+
+      .author-text p {
+        color: #666666;
+        line-height: 1.6;
+        margin: 0 0 15px 0;
+        font-size: 15px;
+      }
+
+      .author-links {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .author-link {
+        background-color: #FFB25E;
+        color: #FFFFFF;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+      }
+
+      .author-link:hover {
+        background-color: #FF9126;
+      }
+
+      .author-link.secondary {
+        background-color: #FF9126;
+      }
+
+      .author-link.secondary:hover {
+        background-color: #e67e1a;
+      }
+
+      .author-link.tertiary {
+        background-color: #7a7a7a;
+      }
+
+      .author-link.tertiary:hover {
+        background-color: #5a5a5a;
+      }
+
+      /* Social links section */
+      .social-section {
+        text-align: center;
+        padding: 30px 20px;
+        background-color: #FAFAFA;
+        border-radius: 12px;
+        margin: 30px 0;
+      }
+
+      .social-section h4 {
+        color: #4A4A4A;
+        font-size: 20px;
+        margin: 0 0 20px 0;
+        font-weight: 700;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .social-link {
+        background-color: #FFB25E;
+        color: #FFFFFF;
+        padding: 12px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+      }
+
+      .social-link:hover {
+        background-color: #FF9126;
+      }
+
+      .social-link.youtube {
+        background-color: #FF0000;
+      }
+
+      .social-link.youtube:hover {
+        background-color: #cc0000;
+      }
+
+      /* Footer section */
+      .footer-section {
+        background-color: #F8F8F8;
+        padding: 30px 20px;
+        text-align: center;
+        border-top: 1px solid #E0E0E0;
+      }
+
+      .unsubscribe-button {
+        background-color: #FFB25E;
+        color: #FFFFFF;
+        padding: 12px 24px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+      }
+
+      .unsubscribe-button:hover {
+        background-color: #FF9126;
+      }
+
+      .footer-text {
+        font-size: 14px;
+        color: #666666;
+        margin: 0;
+      }
+
+      /* Dark mode support */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #1a1a1a !important;
+          color: #e0e0e0 !important;
+        }
+        
+        .email-container {
+          background-color: #2d2d2d !important;
+        }
+        
+        .content-section h2 {
+          color: #ffffff !important;
+        }
+        
+        .content-section p {
+          color: #e0e0e0 !important;
+        }
+        
+        .content-section .source {
+          color: #b0b0b0 !important;
+        }
+        
+        .author-section {
+          background-color: #242424 !important;
+          border-left-color: #FFB25E !important;
+        }
+        
+        .author-text h4 {
+          color: #ffffff !important;
+        }
+        
+        .author-text p {
+          color: #b0b0b0 !important;
+        }
+        
+        .social-section {
+          background-color: #242424 !important;
+        }
+        
+        .social-section h4 {
+          color: #ffffff !important;
+        }
+        
+        .footer-section {
+          background-color: #1a1a1a !important;
+          border-top-color: #3a3a3a !important;
+        }
+        
+        .footer-text {
+          color: #b0b0b0 !important;
+        }
+        
+        .divider {
+          border-top-color: #3a3a3a !important;
+        }
+      }
+
+      /* Media Queries for responsiveness */
+      @media screen and (max-width: 600px) {
+        .email-container {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+
+        .header-section {
+          padding: 30px 15px !important;
+        }
+
+        .header-section h1 {
+          font-size: 28px !important;
+        }
+
+        .subhead {
+          font-size: 14px !important;
+          padding: 6px 12px !important;
+        }
+
+        .content-section {
+          padding: 15px !important;
+        }
+
+        .content-section h2 {
+          font-size: 20px !important;
+        }
+
+        .content-section p {
+          font-size: 15px !important;
+        }
+
+        .divider {
+          margin: 30px 0 !important;
+        }
+
+        .newsletter-promo {
+          padding: 25px 15px !important;
+        }
+
+        .newsletter-promo h3 {
+          font-size: 20px !important;
+        }
+
+        .author-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .author-photo {
+          width: 60px;
+          height: 60px;
+        }
+
+        .author-links {
+          justify-content: center;
+        }
+
+        .social-links {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .social-link {
+          width: 100%;
+          box-sizing: border-box;
+        }
+
+        .footer-section {
+          padding: 25px 15px !important;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .header-section h1 {
+          font-size: 24px !important;
+        }
+        .subhead {
+          font-size: 13px !important;
+        }
+        .content-section h2 {
+          font-size: 18px !important;
+        }
+        .content-section p {
+          font-size: 14px !important;
+        }
+        .unsubscribe-button {
+          padding: 10px 20px !important;
+          font-size: 14px !important;
+        }
+        .author-links {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .author-link {
+          width: 100%;
+          box-sizing: border-box;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body style="font-family: 'Inter', sans-serif; font-size: 16px; color: #4A4A4A; background-color: #F8F8F8; margin: 0; padding: 0;">
+
+    <!-- Preheader text -->
+    <div class="preheader">
+      Votre dose hebdomadaire d'actualité IA ☕️ - Les 6 articles essentiels de la semaine sélectionnés pour vous
+    </div>
+
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td align="center">
+          <!-- Main Email Container Table -->
+          <table class="email-container" cellpadding="0" cellspacing="0" border="0">
+
+            <!-- Header Section -->
+            <tr>
+              <td class="header-section">
+                <h1>Les News IA de la semaine ☕️</h1>
+                <p class="subhead">Made by Louis Delahaye with the use of an ai agent on <a href="https://n8n.partnerlinks.io/cm1t54p7lwdw" target="_blank">n8n</a> - delivered every week</p>
+              </td>
+            </tr>
+
+            <!-- Content Section -->
+            <tr>
+              <td class="content-section">
+
+                <!-- Article 1 -->
+                <h2>ChatGPT : la vitesse plus importante que la puissance ? 🚀</h2>
+                <p class="source">(wired.com)</p>
+                <p>OpenAI vient de faire un changement surprenant pour la version gratuite de ChatGPT. Fini le système qui choisissait automatiquement le modèle d'IA le plus "intelligent" mais aussi le plus lent. La raison ? Vous, comme la majorité des utilisateurs, préférez une réponse instantanée à une réponse parfaite qui se fait attendre. C'est une leçon essentielle pour votre entreprise : la rapidité de l'interaction est souvent plus importante que la puissance brute de l'IA. Vos clients et vos équipes veulent de l'efficacité. Pensez-y pour vos projets : un outil "assez bon" et rapide vaut mieux qu'un expert qui prend son temps. ⚡️</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.wired.com/story/openai-router-relaunch-gpt-5-sam-altman/" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- Article 2 -->
+                <h2>L'IA code plus vite, mais pas toujours mieux 🤖</h2>
+                <p class="source">(MIT Technology Review)</p>
+                <p>L'idée d'une IA qui code pour vous est séduisante pour accélérer vos projets. 🚀 Mais attention, la vitesse peut cacher des pièges. Si ces outils sont parfaits pour des tâches simples, ils peuvent aussi générer un code de piètre qualité, créant une "dette technique" coûteuse à maintenir plus tard. Pour vraiment en profiter, il faut voir au-delà du simple gain de temps. C'est l'occasion de repenser la manière dont vous construisez vos produits, en automatisant intelligemment. L'enjeu est de ne pas sacrifier la solidité de votre projet sur l'autel de la rapidité. 🤔</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.technologyreview.com/2025/12/15/1128352/rise-of-ai-coding-developers-2026/" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- Article 3 -->
+                <h2>Le secret des projets IA qui réussissent 🚀</h2>
+                <p class="source">(MIT Technology Review)</p>
+                <p>Vous lancez des projets IA, mais les résultats tardent à venir ? Le blocage est rarement technique, il est avant tout humain. Une récente étude du MIT le confirme : la peur de l'échec est le principal obstacle à l'adoption de l'IA. Pour que cette technologie devienne un vrai levier de productivité, vos équipes doivent avoir un véritable "droit à l'erreur". Elles ont besoin de se sentir libres d'expérimenter, de tester et de donner un avis honnête sans craindre de conséquences. Pensez-y : c'est en créant ce climat de confiance que vos investissements IA porteront vraiment leurs fruits. 🤔</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.technologyreview.com/2025/12/16/1125899/creating-psychological-safety-in-the-ai-era/" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <!-- Newsletter Économique Promotion Section -->
+                <div class="newsletter-promo">
+                  <h3>Newsletter Économique de Louis 📈</h3>
+                  <p>Découvre chaque jour les actualités économiques les plus importantes !</p>
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLScaY5kf2cBudSdf0UJWt0uUc3HVRDH69V91PY3bIMaQiQZenA/viewform?usp=share_link&ouid=108667181561353845464" target="_blank" class="newsletter-promo-button">
+                    S'inscrire gratuitement
+                  </a>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Article 4 -->
+                <h2>Votre assistant IA devient plus rapide et fiable 🚀</h2>
+                <p class="source">(TechRadar)</p>
+                <p>La course entre les géants de l'IA s'accélère ! Pour concurrencer Google, OpenAI sort une nouvelle version de son moteur. L'objectif n'est pas d'ajouter des gadgets, mais de renforcer le cœur de l'outil : sa vitesse, sa fiabilité et sa capacité de raisonnement. Pour votre entreprise, cela signifie des réponses plus rapides et des résultats plus pertinents au quotidien. Cette compétition est une excellente nouvelle, car elle garantit que les intelligences artificielles que vous utilisez deviennent chaque jour plus performantes pour vous aider dans vos tâches. 🧠</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.techradar.com/ai-platforms-assistants/chatgpt/openai-races-gemini-3-to-the-top-with-gpt-5-2-drop-this-week" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- Article 5 -->
+                <h2>L'IA fait grimper le prix de vos ordinateurs 📈</h2>
+                <p class="source">(TechRadar)</p>
+                <p>Attention si vous prévoyez de renouveler votre parc informatique. La demande explosive en composants pour l'intelligence artificielle par les géants de la tech crée une pénurie mondiale. La conséquence directe pour votre entreprise ? Dell vient d'annoncer une hausse massive des prix de ses ordinateurs professionnels, touchant surtout la mémoire et le stockage. Cette tendance de fond va impacter tous les constructeurs. Concrètement, votre prochain investissement matériel vous coûtera bien plus cher. Si un renouvellement est prévu, il est judicieux d'accélérer votre décision et de réévaluer vos budgets. 💻🤔</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.techradar.com/pro/dell-reportedly-preparing-massive-price-hikes-for-commercial-clients-and-warns-ordering-today-for-future-delivery-does-not-lock-in-current-pricing" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <div class="divider"></div>
+
+                <!-- Article 6 -->
+                <h2>L'IA qui devine votre âge pour mieux vous parler 🧠</h2>
+                <p class="source">(TechRadar)</p>
+                <p>Et si votre IA pouvait adapter sa conversation à son interlocuteur ? OpenAI prépare une version de ChatGPT capable de discuter de sujets plus nuancés, aujourd'hui jugés trop sensibles. Mais la vraie révolution est ailleurs : pour y accéder, l'IA ne vous demandera pas votre âge. Elle le devinera en analysant votre manière de converser. C'est un pas de géant vers des assistants plus intelligents, capables de personnaliser l'expérience pour vos clients ou vos équipes sans formulaires. Cette technologie ouvre la voie à des interactions plus naturelles et pertinentes, où l'IA s'ajuste enfin à l'humain. Une avancée à suivre de près ! 🤔</p>
+                <p class="article-link-wrapper">
+                  <a href="https://www.techradar.com/ai-platforms-assistants/chatgpt/chatgpts-adult-mode-is-coming-and-it-might-not-be-what-you-think-it-is" target="_blank" class="article-link">
+                    Découvrir l'article complet →
+                  </a>
+                </p>
+
+                <!-- Social Links Section -->
+                <div class="social-section">
+                  <h4>Suivez-moi et partagez la newsletter ! 🚀</h4>
+                  <div class="social-links">
+                    <a href="https://www.youtube.com/@cash-routine" target="_blank" class="social-link youtube">
+                      📺 Ma chaîne YouTube
+                    </a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScaY5kf2cBudSdf0UJWt0uUc3HVRDH69V91PY3bIMaQiQZenA/viewform?usp=share_link&ouid=108667181561353845464" target="_blank" class="social-link">
+                      📤 Partager cette newsletter
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Author Signature Section -->
+                <div class="author-section">
+                  <div class="author-content">
+                    <img src="https://raw.githubusercontent.com/Grunti/Newsletters/main/docs/photo-louis4.jpg" alt="Photo de Louis Delahaye, créateur de la newsletter IA hebdomadaire" class="author-photo">
+                    <div class="author-text">
+                      <h4>Je t'en dis plus sur moi..!</h4>
+                      <p>J'ai créé cette newsletter pour avoir un aperçu rapide, simple et récurrent dans ma boîte mail des nouveautés autour de l'IA, le tout sans prise de tête ! Je suis curieux d'avoir tes retours, n'hésite pas à m'en faire en répondant à ce mail !</p>
+                      <p>Tu veux parler agent IA ou Business ? Réserve un créneau de 30 min avec moi !</p>
+                      <div class="author-links">
+                        <a href="https://calendly.com/louis-delahaye/30min" class="author-link">📅 Réserver un créneau</a>
+                        <a href="https://n8n.io/creators/louisdl/" class="author-link secondary">🔗 Mon portfolio</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </td>
+            </tr>
+
+            <!-- Footer Section with Unsubscribe -->
+            <tr>
+              <td class="footer-section">
+                <p class="footer-text">Don't want to receive these emails anymore?</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSedeZpU7VFS_AspOfhx9YDJ4YHFkRa4xgS9fTUTOjugPCgJgQ/viewform?usp=pp_url&entry.1340514408=Oui" target="_blank" class="unsubscribe-button">
+                  Se désabonner
+                </a>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+
+  </body>
+</html>
